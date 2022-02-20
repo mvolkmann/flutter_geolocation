@@ -27,7 +27,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
-    _getPermission().then((p) {
+    getPermission().then((p) {
       setState(() => havePermission = p);
     });
   }
@@ -44,16 +44,16 @@ class _HomeState extends State<Home> {
           children: <Widget>[
             ElevatedButton(
               child: Text('Get Location'),
-              onPressed: havePermission ? _getPosition : null,
+              onPressed: havePermission ? getPosition : null,
             ),
-            _buildReport(),
+            buildReport(),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildReport() {
+  Widget buildReport() {
     if (position == null) return Text('position is unknown');
     return Column(
       children: [
@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Future<bool> _getPermission() async {
+  Future<bool> getPermission() async {
     // Test if location services are enabled.
     var serviceEnabled = await Geolocator.isLocationServiceEnabled();
     if (!serviceEnabled) return false;
@@ -78,7 +78,7 @@ class _HomeState extends State<Home> {
     return permission != LocationPermission.deniedForever;
   }
 
-  void _getPosition() async {
+  void getPosition() async {
     var p = await Geolocator.getCurrentPosition();
     setState(() => position = p);
   }
