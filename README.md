@@ -12,7 +12,7 @@ after the `application` element:
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 ```
 
-For iOS, you may need to add these lines
+For iOS, add one or more of the following key/value pairs
 in `ios/Runner/Info.plist`:
 
 ```xml
