@@ -4,8 +4,8 @@ This uses the pub.dev package geolocator
 https://pub.dev/packages/geolocator
 to get the latitude and longitude of the user.
 
-For Android, you may need to add these lines
-in `android/app/src/main/AndroidManifest.xml`:
+For Android, add these lines in `android/app/src/main/AndroidManifest.xml`
+after the `application` element:
 
 ```xml
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
